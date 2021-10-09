@@ -1,5 +1,9 @@
 import {variance} from "./data/stats_helpers.js";
 
+export function HelloWorld(message) {
+    return `Hello, world ${message}`
+}
+
 /**
  * Gets the sum of an array of numbers.
  * @param array
@@ -8,9 +12,12 @@ import {variance} from "./data/stats_helpers.js";
  * prototype functions. Very useful
  */
 export function getSum(array) {
-
+    let count = 0;
+    array.forEach(function(item, index, array) {
+        count += item;
+    })
+    return count;
 }
-
 
 /**
  * Calculates the median of an array of numbers.
