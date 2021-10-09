@@ -1,9 +1,5 @@
 import {variance} from "./data/stats_helpers.js";
 
-export function HelloWorld(message) {
-    return `Hello, world ${message}`
-}
-
 /**
  * Gets the sum of an array of numbers.
  * @param array
