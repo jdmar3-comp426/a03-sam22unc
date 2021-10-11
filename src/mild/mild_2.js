@@ -28,7 +28,7 @@ export function identifyArray(array) {
    array.forEach(function(item, index, array) {
       list.push(identifyVariable(item))
    });
-   return {list};
+   return list;
 }
 
 /**
@@ -70,7 +70,7 @@ export function removeKey(object, key) {
 export function removeKeyNonDestructive(object, key) {
    const newObj = Object.assign({}, object)
    removeKey(newObj, key);
-   return {newObj};
+   return newObj;
 }
 
 /**
@@ -99,5 +99,5 @@ export function removeKeys(object, keyList) {
    keyList.forEach(function(item, index, array){
       newObj = removeKeyNonDestructive(newObj, item);
    });
-   return {newObj};
+   return newObj;
 }
