@@ -22,11 +22,11 @@ export function getSum(array) {
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
-    let sorted =  array.sort();
-    if(sorted.length % 2 == 0){
-        return (sorted[(sorted.length)/2]+sorted[(sorted.length)/2-1])/2;
+    //let sorted =  array.sort();
+    if(array.length % 2 == 0){
+        return (array[(array.length)/2]+array[(array.length)/2-1])/2;
     } else {
-        return sorted[(sorted.length - 1)/2];
+        return array[(array.length - 1)/2];
     }
 }
 
