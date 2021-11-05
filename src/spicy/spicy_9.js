@@ -164,7 +164,7 @@ export const allEvensAreOdd = (arr) => {
  *   array is an odd number. Use the "someEven" function in this function.
  */
 export const anEvenIsOdd = (arr) => {
-    return someEven(arr, x => x % 2 != 0);
+    return arr.filter((a,i) => i%2 === 0).some(e => e%2 === 1);
 };
 
 
