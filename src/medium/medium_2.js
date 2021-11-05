@@ -91,11 +91,30 @@ const hybrids = mpg_data.filter(stat => stat.hybrid);
 let values = [];
 hybrids.forEach(stat => {
     if (values.find(value => value.make === stat.make) === undefined) {
-        values.push({"make" : stat.make, "hybrids" : []})
+        values.push({"make" : stat.make, "hybrids" : []});
     }
     values.find(value => value.make === stat.make).hybrids.push(stat.id);
 });
+const sorted = values.sort((a,b)=>a.hybrids.length-b.hybrids.length);
+
+let averages = {};
+let years = mpg_data.map(stat => stat.year);
+years = new Set(years);
+years = new Array(years);
+years.forEach(year => {
+    averages[year] = {
+        "hybrid": {
+            "city" : mpg_data.filter(stat => stat.year === year && stat.hybrid).reduce(function(tot, record) { return tot + record.city_mpg; },0 ) / mpg_data.filter(stat => stat.year === year && stat.hybrid).length,
+            "highway" : mpg_data.filter(stat => stat.year === year && stat.hybrid).reduce(function(tot, record) { return tot + record.highway_mpg; },0 ) / mpg_data.filter(stat => stat.year === year && stat.hybrid).length
+        },
+        "nonHybrid" : {
+            "city" : mpg_data.filter(stat => stat.year === year && !stat.hybrid).reduce(function(tot, record) { return tot + record.city_mpg; },0 ) / mpg_data.filter(stat => stat.year === year && !stat.hybrid).length,
+            "highway" : mpg_data.filter(stat => stat.year === year && !stat.hybrid).reduce(function(tot, record) { return tot + record.highway_mpg; },0 ) / mpg_data.filter(stat => stat.year === year && !stat.hybrid).length
+        }
+    }
+});
+
 export const moreStats = {
-    makerHybrids: values,
-    avgMpgByYearAndHybrid: undefined
+    makerHybrids: sorted,
+    avgMpgByYearAndHybrid: averages
 };
