@@ -99,8 +99,7 @@ const sorted = values.sort((a,b)=>a.hybrids.length-b.hybrids.length);
 
 let averages = {};
 let years = mpg_data.map(stat => stat.year);
-years = new Set(years);
-years = new Array(years);
+years = [...new Set(years)];
 years.forEach(year => {
     averages[year] = {
         "hybrid": {
