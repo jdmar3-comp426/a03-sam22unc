@@ -92,7 +92,7 @@ export const tenTimesFifty = () => {
  *    everyEven([1, 1, 0, 1, 1], x => x === 1)  <--  returns false
  */
 export const everyEven = (arr, test) => {
-    
+    return arr.filter(stat => stat % 2 == 0).every(e => test (e));
 };
 
 
@@ -142,7 +142,9 @@ export const someEven = (arr, test) => {
  *       -->  { pass: [1, 5, 31], fail: [90] }
  */
 export const filter = (arr, test) => {
-
+    return {
+        "pass": arr.map(x => x).filter(e => test(e)),
+        "fail": arr.map(x => x).filter(e => !test(e))};
 };
 
 
