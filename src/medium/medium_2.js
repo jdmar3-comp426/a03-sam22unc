@@ -106,7 +106,7 @@ years.forEach(year => {
             "city" : mpg_data.filter(stat => stat.year === year && stat.hybrid).reduce(function(tot, record) { return tot + record.city_mpg; },0 ) / mpg_data.filter(stat => stat.year === year && stat.hybrid).length,
             "highway" : mpg_data.filter(stat => stat.year === year && stat.hybrid).reduce(function(tot, record) { return tot + record.highway_mpg; },0 ) / mpg_data.filter(stat => stat.year === year && stat.hybrid).length
         },
-        "nonHybrid" : {
+        "notHybrid" : { 
             "city" : mpg_data.filter(stat => stat.year === year && !stat.hybrid).reduce(function(tot, record) { return tot + record.city_mpg; },0 ) / mpg_data.filter(stat => stat.year === year && !stat.hybrid).length,
             "highway" : mpg_data.filter(stat => stat.year === year && !stat.hybrid).reduce(function(tot, record) { return tot + record.highway_mpg; },0 ) / mpg_data.filter(stat => stat.year === year && !stat.hybrid).length
         }
