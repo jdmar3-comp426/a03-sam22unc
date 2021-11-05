@@ -116,7 +116,7 @@ export const everyEven = (arr, test) => {
  *    someEven([0, 0, 0, 0, 0], x => x === 0)  <--  returns true
  */
 export const someEven = (arr, test) => {
-
+    return arr.filter(stat => stat % 2 == 0).some(e => test (e));
 };
 
 
