@@ -18,7 +18,7 @@
       "output": "[\r\n  13, 14, 15, 16, 17,\r\n  18, 19, 20, 21, 22\r\n]",
       "comparison": "exact",
       "timeout": 1,
-      "points": 3 
+      "points": 3
     },
     {
       "name": "maxAndMin(numbers) from mild_1",
